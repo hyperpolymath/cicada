@@ -1,0 +1,12 @@
+name = "PalimpsestCryptoIdentity"
+uuid = "449d71e4-0569-4032-8a3c-f519b3386ebb"
+authors = ["Your Name <your.email@example.com>"]
+version = "0.1.0"
+
+[deps]
+ArgParse = "c3e4b0f8-55cb-11ea-2d4f-a9dad03fdaef"
+Logging = "56ddb016-1d5c-4c9e-9873-a7c1b4f1b7a0"
+
+[compat]
+julia = "1.9"
+ArgParse = "1.1"
