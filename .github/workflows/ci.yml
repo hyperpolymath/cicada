@@ -23,15 +23,15 @@ jobs:
           - windows-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           submodules: recursive
 
-      - uses: julia-actions/setup-julia@v1
+      - uses: julia-actions/setup-julia@v2
         with:
           version: ${{ matrix.version }}
 
-      - uses: julia-actions/cache@v1
+      - uses: julia-actions/cache@v2
 
       - uses: julia-actions/julia-buildpkg@v1
 
@@ -42,7 +42,7 @@ jobs:
       - uses: julia-actions/julia-processcoverage@v1
         if: matrix.os == 'ubuntu-latest' && matrix.version == '1.9'
 
-      - uses: codecov/codecov-action@v3
+      - uses: codecov/codecov-action@v5
         if: matrix.os == 'ubuntu-latest' && matrix.version == '1.9'
         with:
           file: lcov.info
@@ -52,9 +52,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - uses: julia-actions/setup-julia@v1
+      - uses: julia-actions/setup-julia@v2
         with:
           version: '1.9'
 
@@ -67,7 +67,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Run security checks
         run: |
@@ -78,7 +78,7 @@ jobs:
           ! grep -r "token\s*=" src/ test/ | grep -v "github_token" | grep -v "# GitHub"
 
       - name: Dependency audit
-        uses: julia-actions/setup-julia@v1
+        uses: julia-actions/setup-julia@v2
         with:
           version: '1.9'
 
