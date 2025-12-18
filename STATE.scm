@@ -15,7 +15,7 @@
   '((version . "0.1.0")
     (schema-version . "1.0")
     (created . "2025-12-15")
-    (updated . "2025-12-15")
+    (updated . "2025-12-18")
     (project . "cicada")
     (repo . "github.com/hyperpolymath/cicada")))
 
@@ -31,9 +31,10 @@
     (rsr-compliance . "gold-target")
 
     (tech-stack
-     ((primary . "See repository languages")
+     ((primary . "Julia 1.9+")
+      (package-management . "Guix (primary) + Nix (fallback)")
       (ci-cd . "GitHub Actions + GitLab CI + Bitbucket Pipelines")
-      (security . "CodeQL + OSSF Scorecard")))))
+      (security . "CodeQL + OSSF Scorecard + TruffleHog")))))
 
 ;;;============================================================================
 ;;; CURRENT POSITION
@@ -41,7 +42,7 @@
 
 (define current-position
   '((phase . "v0.1 - Initial Setup and RSR Compliance")
-    (overall-completion . 25)
+    (overall-completion . 40)
 
     (components
      ((rsr-compliance
@@ -49,26 +50,39 @@
         (completion . 100)
         (notes . "SHA-pinned actions, SPDX headers, multi-platform CI")))
 
+      (package-management
+       ((status . "complete")
+        (completion . 100)
+        (notes . "guix.scm (primary) + flake.nix (fallback) configured")))
+
       (documentation
        ((status . "foundation")
-        (completion . 30)
-        (notes . "README exists, META/ECOSYSTEM/STATE.scm added")))
+        (completion . 40)
+        (notes . "README, META/ECOSYSTEM/STATE.scm, CLAUDE.md complete")))
 
       (testing
        ((status . "minimal")
-        (completion . 10)
-        (notes . "CI/CD scaffolding exists, limited test coverage")))
+        (completion . 15)
+        (notes . "CI/CD scaffolding exists, basic test coverage")))
 
       (core-functionality
        ((status . "in-progress")
-        (completion . 25)
-        (notes . "Initial implementation underway")))))
+        (completion . 30)
+        (notes . "Key generation, storage, rotation implemented")))
+
+      (security-hardening
+       ((status . "in-progress")
+        (completion . 80)
+        (notes . "SHA-pinned actions, secret scanning, HTTPS enforcement")))))
 
     (working-features
-     ("RSR-compliant CI/CD pipeline"
+     ("RSR-compliant CI/CD pipeline (SHA-pinned)"
       "Multi-platform mirroring (GitHub, GitLab, Bitbucket)"
       "SPDX license headers on all files"
-      "SHA-pinned GitHub Actions"))))
+      "Guix + Nix package definitions"
+      "OSSF Scorecard integration"
+      "TruffleHog secret scanning"
+      "EditorConfig enforcement"))))
 
 ;;;============================================================================
 ;;; ROUTE TO MVP
@@ -157,7 +171,18 @@
        ("Added META.scm, ECOSYSTEM.scm, STATE.scm"
         "Established RSR compliance"
         "Created initial project checkpoint"))
-      (notes . "First STATE.scm checkpoint created via automated script")))))
+      (notes . "First STATE.scm checkpoint created via automated script"))
+
+     ((date . "2025-12-18")
+      (session . "security-hardening-review")
+      (accomplishments
+       ("SHA-pinned ALL GitHub Actions across 12 workflow files"
+        "Created flake.nix as Nix fallback package manager"
+        "Enhanced guix.scm with proper Julia inputs and dependencies"
+        "Updated STATE.scm with current project status"
+        "Verified HTTPS-only URLs across codebase"
+        "Reviewed and documented security posture"))
+      (notes . "Comprehensive security review and SCM configuration update")))))
 
 ;;;============================================================================
 ;;; HELPER FUNCTIONS (for Guile evaluation)
@@ -185,10 +210,10 @@
 (define state-summary
   '((project . "cicada")
     (version . "0.1.0")
-    (overall-completion . 25)
+    (overall-completion . 40)
     (next-milestone . "v0.2 - Core Functionality")
     (critical-blockers . 0)
     (high-priority-issues . 0)
-    (updated . "2025-12-15")))
+    (updated . "2025-12-18")))
 
 ;;; End of STATE.scm
