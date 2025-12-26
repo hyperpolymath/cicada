@@ -1,4 +1,4 @@
-= CIcaDA - Palimpsest Crypto Identity
+= CIcaDA - Crypto Identity
 
 *Quantum-Resistant Cryptographic Identity Management*
 
